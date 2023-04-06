@@ -20,11 +20,13 @@ source "amazon-ebs" "image" {
 	// ami_users 			 = [
 	// 	"128079982705"
 	// ]
-	ami_regions = [
-    	"us-east-1",
-		"eu-west-1",
-		"ap-southeast-1",
-	] 
+	// ami_regions = [
+    //	"us-east-1",
+	//	"eu-west-1",
+	//	"ap-southeast-1",
+	//] 
+
+    
 	source_ami = "ami-02f97949d306b597a"
 	run_tags = {
 		Name = "Packer instance for golden-image"
@@ -40,9 +42,6 @@ build {
 	]
 	provisioner "shell" {
 		inline = [
-			"echo Installing Telnet",
-            "sudo yum update -y",
-			"sudo yum install telnet -y",
 			"sudo yum install httpd -y",
 			"sudo yum install php -y",
 			"sudo systemctl restart httpd",
@@ -53,8 +52,6 @@ build {
 			"sudo mv /var/www/html/wordpress/* /var/www/html/",
 			"sudo chown -R apache:apache /var/www/html/",
 			"sudo systemctl restart httpd"
-            #"wget https://inspector-agent.amazonaws.com/linux/latest/install",
-            #"sudo bash install"
 		]
 	}
 	provisioner "breakpoint" {
