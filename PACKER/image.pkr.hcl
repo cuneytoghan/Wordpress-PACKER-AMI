@@ -53,6 +53,8 @@ build {
 			"sudo mv /var/www/html/wordpress/* /var/www/html/",
 			"sudo chown -R apache:apache /var/www/html/",
 			"sudo systemctl restart httpd"
+            #"wget https://inspector-agent.amazonaws.com/linux/latest/install",
+            #"sudo bash install"
 		]
 	}
 	provisioner "breakpoint" {
