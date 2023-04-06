@@ -20,11 +20,11 @@ source "amazon-ebs" "image" {
 	// ami_users 			 = [
 	// 	"128079982705"
 	// ]
-	// ami_regions = [
-	// 	"us-east-1",
-	// 	"eu-west-1",
-	// 	"ap-southeast-1",
-	// ] 
+	ami_regions = [
+    	"us-east-1",
+		"eu-west-1",
+		"ap-southeast-1",
+	] 
 	source_ami = "ami-02f97949d306b597a"
 	run_tags = {
 		Name = "Packer instance for golden-image"
